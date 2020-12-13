@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 :root {
   --primary-color: #76bb99;
@@ -25,11 +25,68 @@ h1 {
   cursor: pointer;
   text-transform: uppercase;
   text-align: center;
-  width: 275;
+  width: 275px;
   margin: 20px auto 10px;
   user-select: none;
 }
 
-h1:hover {
-  background: rgba(0, 0, 0, 0.8);
+h1:hover, 
+.item:hover {
+  background: rgba(0, 0, 0, 0.67);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 10px;
+}
+
+a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+.fa-times {
+  float: right;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.name {
+  margin-top: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.name img {
+  height: 1.5rem;
+  width: 1.5rem;
+  vertical-align: sub;
+  margin-right: 5px;
+}
+
+/* Media Query for Large Smartphone in vertical Position */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
 }
