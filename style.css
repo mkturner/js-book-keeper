@@ -90,9 +90,9 @@ a:active {
   display: none;
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
 }
 
 .show-modal {
@@ -103,9 +103,50 @@ a:active {
 
 .modal {
   background: #fff;
+  /* no vertical or horizontal spread, 10px blur */
   box-shadow: 0 0 10px rgba(0,0,0,0.8);
   max-width: 95%;
   width: 500px;
+  animation: openmodal 3s;
+}
+
+@keyframes openmodal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.close-icon {
+  float: right;
+  color: #fff;
+  font-size: 2rem;
+  position: relative;
+  top: 13px;
+  right: 13px;
+  cursor: pointer;
+}
+
+.modal-header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem;
+}
+
+h3 {
+  margin: 0
+}
+
+/* Form */
+.form-group {
+  height: 3.7rem;
+}
+
+.form-input {
+  width: 7.5rem;
 }
 
 /* Media Query for Large Smartphone in vertical Position */
