@@ -180,6 +180,7 @@ button:hover {
   filter: brightness(80%)
 }
 
+/* Remove default outline when active */
 button:active {
   outline: none;
 }
