@@ -12,5 +12,12 @@ function showModal() {
   websiteName.focus;
 }
 
-// Modal Event listener
+// Modal Event listeners
 modalShow.addEventListener('click', showModal);
+modalClose.addEventListener('click', () =>
+  modal.classList.remove('show-modal')
+);
+// Close modal when user clicks outside form
+window.addEventListener('click', (e) => {
+  e.target === modal ? modal.classList.remove('show-modal') : false;
+});
