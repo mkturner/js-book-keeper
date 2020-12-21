@@ -17,6 +17,17 @@ modalShow.addEventListener('click', showModal);
 modalClose.addEventListener('click', () =>
   modal.classList.remove('show-modal')
 );
+
+// Handle Data from Form
+function storeBookmark(e) {
+    // preventDefault to stop page reload
+    e.preventDefault();
+    console.log(e);
+}
+
+// Bookmark event listener
+bookmarkForm.addEventListener('submit', storeBookmark);
+
 // Close modal when user clicks outside form
 window.addEventListener('click', (e) => {
   e.target === modal ? modal.classList.remove('show-modal') : false;
