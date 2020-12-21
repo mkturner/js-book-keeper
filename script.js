@@ -22,7 +22,10 @@ modalClose.addEventListener('click', () =>
 function storeBookmark(e) {
     // preventDefault to stop page reload
     e.preventDefault();
-    console.log(e);
+    const nameValue = websiteName.value;
+    const urlValue = websiteURL.value;
+
+    console.log(nameValue, urlValue);
 }
 
 // Bookmark event listener
