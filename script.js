@@ -23,8 +23,10 @@ function storeBookmark(e) {
     // preventDefault to stop page reload
     e.preventDefault();
     const nameValue = websiteName.value;
-    const urlValue = websiteURL.value;
-
+    let urlValue = websiteURL.value;
+    if (!urlValue.includes('http://', 'https://')) {
+      urlValue = `https://${urlValue}`;
+    }
     console.log(nameValue, urlValue);
 }
 
