@@ -23,13 +23,17 @@ function validate(name, url) {
     const expr = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g;
     const regex = new RegExp(expr);
 
-    if (url.match(regex)) {
-        alert('match');
-        return true;
-    } else {
-        alert('Please provide a valid web address')
-        return false;
+    if (!name || !url) {
+      alert('Please submit names for both fields.');
+      return false;
     }
+
+    if (!url.match(regex)) {
+      alert('Please provide a valid web address.');
+      return false;
+    }
+
+    return true;
 }
 
 // Handle Data from Form
@@ -42,7 +46,9 @@ function storeBookmark(e) {
       urlValue = `https://${urlValue}`;
     }
     console.log(nameValue, urlValue);
-    validate(nameValue, urlValue);
+    if (!validate(nameValue, urlValue)) {
+      return false;
+    }
 }
 
 // Bookmark event listener
