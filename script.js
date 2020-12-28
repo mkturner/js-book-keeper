@@ -6,6 +6,9 @@ const websiteName = document.getElementById('website-name');
 const websiteURL = document.getElementById('website-url');
 const bookmarksContainer = document.getElementById('bookmarks-container');
 
+// array to hold bookmarks
+let bookmarks = [];
+
 // Show Modal, Focus on 1st input
 function showModal() {
   modal.classList.add('show-modal');
@@ -38,17 +41,31 @@ function validate(name, url) {
 
 // Handle Data from Form
 function storeBookmark(e) {
-    // preventDefault to stop page reload
-    e.preventDefault();
-    const nameValue = websiteName.value;
-    let urlValue = websiteURL.value;
-    if (!urlValue.includes('http://', 'https://')) {
-      urlValue = `https://${urlValue}`;
-    }
-    console.log(nameValue, urlValue);
-    if (!validate(nameValue, urlValue)) {
-      return false;
-    }
+  // preventDefault to stop page reload
+  e.preventDefault();
+  const nameValue = websiteName.value;
+  let urlValue = websiteURL.value;
+  if (!urlValue.includes('http://', 'https://')) {
+    urlValue = `https://${urlValue}`;
+  }
+  if (!validate(nameValue, urlValue)) {
+    return false;
+  }
+
+  // make object from data and pass into bookmarks list
+  const bookmark = {
+    name: nameValue,
+    url: urlValue,
+  };
+  bookmarks.push(bookmark);
+  // print list of bookmarks to console for inspection
+  console.log(JSON.stringify(bookmarks));
+  // Save to LocalStorage
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+  // clear form for next entry
+  bookmarkForm.reset();
+  websiteName.focus();
 }
 
 // Bookmark event listener
