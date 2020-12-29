@@ -39,6 +39,25 @@ function validate(name, url) {
     return true;
 }
 
+// Fetch Bookmarks
+function getBookmarks() {
+  // get only if available
+  if (localStorage.getItem('bookmarks')) {
+    bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  } else {
+    // create bookmarks array in localStorage
+    bookmarks =[
+      {
+        name: 'goog',
+        url: 'google.com',
+      },
+    ];
+    // populate localStorage so it has SOME data, since empty
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    console.log(bookmarks)
+  }
+}
+
 // Handle Data from Form
 function storeBookmark(e) {
   // preventDefault to stop page reload
@@ -59,7 +78,6 @@ function storeBookmark(e) {
   };
   bookmarks.push(bookmark);
   // print list of bookmarks to console for inspection
-  console.log(JSON.stringify(bookmarks));
   // Save to LocalStorage
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
