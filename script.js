@@ -39,6 +39,17 @@ function validate(name, url) {
     return true;
 }
 
+// Manipulate DOM to show data from localStorage in UI
+function restoreBookmarks() {
+  //  Build items
+  bookmarks.forEach((bookmark) => {
+    // destructure data from object
+    const {name, url} = bookmark;
+    console.log(name, url);
+    
+  });
+}
+
 // Fetch Bookmarks
 function getBookmarks() {
   // get only if available
@@ -54,8 +65,8 @@ function getBookmarks() {
     ];
     // populate localStorage so it has SOME data, since empty
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    console.log(bookmarks)
   }
+  restoreBookmarks();
 }
 
 // Handle Data from Form
@@ -80,7 +91,7 @@ function storeBookmark(e) {
   // print list of bookmarks to console for inspection
   // Save to LocalStorage
   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
+  getBookmarks();
   // clear form for next entry
   bookmarkForm.reset();
   websiteName.focus();
@@ -93,3 +104,6 @@ bookmarkForm.addEventListener('submit', storeBookmark);
 window.addEventListener('click', (e) => {
   e.target === modal ? modal.classList.remove('show-modal') : false;
 });
+
+// On load get Bookmarks
+getBookmarks();
