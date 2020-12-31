@@ -44,9 +44,26 @@ function restoreBookmarks() {
   //  Build items
   bookmarks.forEach((bookmark) => {
     // destructure data from object
-    const {name, url} = bookmark;
-    console.log(name, url);
-    
+    const { name, url } = bookmark;
+    // Create elements
+    // Item
+    const item = document.createElement('div');
+    item.classList.add('item');
+    // Close Icon
+    const closeIcon = document.createElement('i');
+    closeIcon.classList.add('fas', 'fa-times');
+    closeIcon.setAttribute('title', 'Delete Bookmark');
+    closeIcon.setAttribute('onclick', `deleteBookmark('${url}')`);
+    // Favicon / Link Container
+    const linkInfo = document.createElement('div');
+    linkInfo.classList.add('name');
+    // Favicon img
+    const favIcon = document.createElement('img');
+    favIcon.setAttribute(
+      'src',
+      `https://s2.googleusercontent.com/s2/favicons?domain=${url}`
+    );
+    favIcon.setAttribute('alt', `${name} Favicon`);
   });
 }
 
