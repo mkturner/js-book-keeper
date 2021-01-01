@@ -64,6 +64,15 @@ function restoreBookmarks() {
       `https://s2.googleusercontent.com/s2/favicons?domain=${url}`
     );
     favIcon.setAttribute('alt', `${name} Favicon`);
+    //  Link
+    const link = document.createElement('a');
+    link.setAttribute('href', `${url}`);
+    link.setAttribute('target', '_blank');
+    link.textContent = name;
+    // append to bookmarks container
+    linkInfo.append(favIcon, link);
+    item.append(closeIcon, linkInfo);
+    bookmarksContainer.appendChild(item);
   });
 }
 
