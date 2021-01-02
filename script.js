@@ -41,6 +41,8 @@ function validate(name, url) {
 
 // Manipulate DOM to show data from localStorage in UI
 function restoreBookmarks() {
+  // Remove all current bookmarks
+  bookmarksContainer.textContent = '';
   //  Build items
   bookmarks.forEach((bookmark) => {
     // destructure data from object
@@ -93,6 +95,16 @@ function getBookmarks() {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   }
   restoreBookmarks();
+}
+
+// Delete Bookmark
+function deleteBookmark(url) {
+  console.log(`delete URL ${url}:`);
+  bookmarks = bookmarks.filter(bmark => bmark.url != url);
+  console.log(bookmarks);
+  // Update bookmarks array in localStorage, repopulate DOM
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  getBookmarks();
 }
 
 // Handle Data from Form
