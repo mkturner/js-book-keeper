@@ -1,5 +1,5 @@
 # Vanilla JS Bookmark Keeper
-![Bookmark Keeper Demo](https://thumbs.gfycat.com/KindheartedScientificCondor-size_restricted.gif)
+![Bookmark Keeper Demo](https://thumbs.gfycat.com/BountifulInsignificantDolphin-size_restricted.gif)
 
 App features:
 - Save your favorite links you want to visit later
