@@ -1,5 +1,5 @@
 # Vanilla JS Bookmark Keeper
-![Bookmark Keeper Demo](https://thumbs.gfycat.com/BountifulInsignificantDolphin-size_restricted.gif)
+[![Bookmark Keeper Demo](https://thumbs.gfycat.com/BountifulInsignificantDolphin-size_restricted.gif)](http://mkturner.com/js-book-keeper/)
 
 App features:
 - Save your favorite links you want to visit later
@@ -9,3 +9,5 @@ App features:
 - grab favicon for easy visual identification
 - refocus form on submit for rapid entry
 - SVG Pattern Background
+
+[Demo](http://mkturner.com/js-book-keeper/)
